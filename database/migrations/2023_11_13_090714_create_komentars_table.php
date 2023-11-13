@@ -1,10 +1,9 @@
 <?php
 
+use App\Models\Artikel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
-use function Laravel\Prompts\password;
 
 return new class extends Migration
 {
@@ -13,12 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('penggunas', function (Blueprint $table) {
+        Schema::create('komentars', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('email');
-            $table->string('password');
-            $table->string('foto');
+            $table->string('isi_komentar');
+            $table->string('tgl_komentar');
+            $table->date('id_artikel');
+            $table->date('id_pengguna');
+            $table->foreignIdFor(Artikel::class);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penggunas');
+        Schema::dropIfExists('komentars');
     }
 };

@@ -2,24 +2,20 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\PenggunaResource\Pages;
-use App\Filament\Resources\PenggunaResource\RelationManagers;
-use App\Models\Pengguna;
+use App\Filament\Resources\KomentarResource\Pages;
+use App\Filament\Resources\KomentarResource\RelationManagers;
+use App\Models\Komentar;
 use Filament\Forms;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class PenggunaResource extends Resource
+class KomentarResource extends Resource
 {
-    protected static ?string $model = Pengguna::class;
+    protected static ?string $model = Komentar::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -27,10 +23,7 @@ class PenggunaResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('nama'),
-                TextInput::make('email'),
-                TextInput::make('password'),
-                FileUpload::make('foto'),
+                //
             ]);
     }
 
@@ -38,14 +31,13 @@ class PenggunaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
-                TextColumn::make('email'),
-                TextColumn::make('password'),
-                ImageColumn::make('foto'),
+                //
             ])
-            ->filters([])
+            ->filters([
+                //
+            ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
@@ -55,22 +47,23 @@ class PenggunaResource extends Resource
             ])
             ->emptyStateActions([
                 Tables\Actions\CreateAction::make(),
-            ]);
+            ])
+            ;
     }
-
+    
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-
+    
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListPenggunas::route('/'),
-            'create' => Pages\CreatePengguna::route('/create'),
-            // 'edit' => Pages\EditPengguna::route('/{record}/edit'),
+            'index' => Pages\ListKomentars::route('/'), 
+            'create' => Pages\CreateKomentar::route('/create'),
+            'edit' => Pages\EditKomentar::route('/{record}/edit'),
         ];
-    }
+    }    
 }

@@ -38,7 +38,7 @@ class PenggunaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')->searchable(),
                 TextColumn::make('email'),
                 TextColumn::make('password'),
                 ImageColumn::make('foto'),

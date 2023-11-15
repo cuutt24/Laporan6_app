@@ -39,7 +39,7 @@ class ArtikelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul'),
+                TextColumn::make('judul')->searchable(),
                 TextColumn::make('isi_text'),
                 TextColumn::make('tanggal_publikasi'),
                 TextColumn::make('desa_id'),

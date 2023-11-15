@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -47,9 +48,10 @@ class GaleriResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul_foto'),
+                TextColumn::make('judul_foto')->searchable(),
                 TextColumn::make('deskripsi'),
                 TextColumn::make('tgl_upload'),
+                ImageColumn::make('foto'),
                 
             ])
             ->filters([

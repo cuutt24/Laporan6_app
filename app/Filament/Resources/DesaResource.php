@@ -36,7 +36,7 @@ class DesaResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama_desa'),
+                TextColumn::make('nama_desa')->searchable(),
                 TextColumn::make('kode_pos'),
                 TextColumn::make('kecamatan'),
             ])

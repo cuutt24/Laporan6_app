@@ -34,7 +34,9 @@ class GaleriResource extends Resource
                 ->required(),
                 DatePicker::make('tgl_upload')
                 ->required(),
-                Select::make('desa_id')->relationship('desa','nama_desa')->default(1),
+                Select::make('desa_id')
+                ->relationship('desa','nama_desa')
+                ->default(1),
                 FileUpload::make('foto')
                 ->required(),
             ]);

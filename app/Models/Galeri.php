@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Galeri extends Model
 {
     use HasFactory;
-    protected $fillable =['judul_foto','deskripsi','tgl_upload'];
+    protected $fillable =['judul_foto','deskripsi','tgl_upload','desa_id','foto'];
     public function artikels()
     {
         return $this->belongsTo(Galeri::class);
